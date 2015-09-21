@@ -4,11 +4,10 @@ using System.Collections;
 public class NetworkController : MonoBehaviour {
 
     private string gameVersion = "0.1";
-    public GameObject player;
 
 	// Use this for initialization
 	void Start () {
-        PhotonNetwork.ConnectUsingSettings(gameVersion);
+        //PhotonNetwork.ConnectUsingSettings(gameVersion);
 	}
 	
 	// Update is called once per frame
@@ -19,18 +18,25 @@ public class NetworkController : MonoBehaviour {
     void OnJoinedLobby()
     {
         print("**************************************************************");
-        PhotonNetwork.JoinRandomRoom();
+        PhotonNetwork.CreateRoom("une room");
     }
 
     void OnPhotonRandomJoinFailed()
     {
         print("** create room **");
-        PhotonNetwork.CreateRoom(null);
+       // PhotonNetwork.CreateRoom(null);
     }
 
     void OnJoinedRoom()
     {
         print("On vient de rejoindre une room");
-        PhotonNetwork.Instantiate("Player", player.transform.position, Quaternion.identity, 0);
+        
+        Application.LoadLevel("veryGoodGame");
     }
+
+    public void create ()
+    {
+        PhotonNetwork.ConnectUsingSettings(gameVersion);
+        print("create");
+    }   
 }
