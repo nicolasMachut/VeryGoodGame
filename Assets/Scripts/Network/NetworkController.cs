@@ -28,15 +28,12 @@ public class NetworkController : MonoBehaviour {
     }
 
     void OnJoinedRoom()
-    {
-        print("On vient de rejoindre une room");
-        
+    {   
         Application.LoadLevel("veryGoodGame");
     }
 
     public void create ()
     {
         PhotonNetwork.ConnectUsingSettings(gameVersion);
-        print("create");
     }   
 }
