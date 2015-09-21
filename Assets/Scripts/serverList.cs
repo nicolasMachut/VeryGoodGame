@@ -44,6 +44,7 @@ public class serverList : MonoBehaviour {
 
     public void Populate()
     {
+	PhotonNetwork.ConnectUsingSettings("0.1");
         this.DestroyChilds();
         this.listServer = this.simulationRequestServer();
         float offsetX=20;
