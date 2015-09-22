@@ -12,6 +12,7 @@ public class SinglePlayer : MonoBehaviour
     public GameObject menuOptionStart;
     public GameObject menuOptionMultiplayer;
     public GameObject listServerGrid;
+    public GameObject player;
     public GameObject defaultButton;
 
     private int _currentExpIdx = -1;
@@ -36,7 +37,7 @@ public class SinglePlayer : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(PhotonNetwork.connectionState);
+        //Debug.Log(PhotonNetwork.connectionState);
         if (this.timeToChangeLvl != -10)
             if (Time.time > timeToChangeLvl)
                 Application.LoadLevel("LogoMenu");
@@ -115,6 +116,7 @@ public class SinglePlayer : MonoBehaviour
     {
         Debug.Log("OnJoinedRoom");
         Application.LoadLevel("game");
+        PhotonNetwork.Instantiate("Player", player.transform.position, Quaternion.identity, 0);
     }
 
     public void joinRoom(ServerButton servButton)

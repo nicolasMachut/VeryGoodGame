@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        print("instanciate");
         PhotonNetwork.Instantiate("Player", player.transform.position, Quaternion.identity, 0);
     }
 	
