@@ -12,9 +12,13 @@ public class ServerButton : MonoBehaviour
     public Button button;
     public string ip;
     public string roomName;
+    public SinglePlayer manager;
 
     
-
+    public void Start()
+    {
+      
+    }
     public void Update()
     {
         text.text = roomName;
@@ -23,7 +27,7 @@ public class ServerButton : MonoBehaviour
 
     public void ClickConnect()
     {
-        Debug.Log(roomName + " " + ip);
+        this.manager.joinRoom(this);
         //Application.LoadLevel("LogoMenu");
         
     }
